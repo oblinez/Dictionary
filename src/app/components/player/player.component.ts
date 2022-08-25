@@ -16,7 +16,7 @@ export class PlayerComponent implements OnInit, OnChanges {
     duration: number,
     paused: boolean,
   } = {
-      audio: new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"),
+      audio: new Audio(),
       currentTime: 0,
       duration: 0,
       paused: true,
