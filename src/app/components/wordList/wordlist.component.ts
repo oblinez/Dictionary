@@ -66,7 +66,6 @@ export class WordlistComponent implements OnInit {
 
   ngOnInit(): void {
     this.getWords( { page: this.gridButtons.page } );
-
   }
 
   public getWords( { page } ): void {
@@ -97,7 +96,7 @@ export class WordlistComponent implements OnInit {
     }
     this.listToBeDisplayed = structuredClone(this.Lists[type])
     this.gridButtons.pressed = 0
-    if (this.listToBeDisplayed.length && !this.isMobile ) this.handleOption({ item: this.listToBeDisplayed[0], index: 0 })
+    if (this.listToBeDisplayed?.length && !this.isMobile ) this.handleOption({ item: this.listToBeDisplayed[0], index: 0 })
   }
 
   public handleOption = ({ item, index }: { item: IWords, index: number }) => {
