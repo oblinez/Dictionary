@@ -1,0 +1,35 @@
+<div class="player">
+  <div class="player__favorite">
+    <button class="player__favorite-button player__favorite-button--size" (click)="closePlayer()" *ngIf="isMobile" >
+      <img class="player__favorite-flag" src="../../../assets/imgs/Player/close.png" alt="">
+    </button>
+    <button class="player__favorite-button" (click)="addRemoveToFavorite()" >
+      <img class="player__favorite-flag" [src]="favoriteIcon" alt="">
+    </button>
+  </div>
+  <div class="player__translate">
+    <span>{{sendWord?.data.word}}</span>
+    
+    <span>{{sendWord?.data?.phonetic?.text}}</span>
+  </div>
+  <div class="player__audio">
+    <button class="player__playerbutton" *ngIf="audioProperty.paused" (click)="playMusic()">
+      <img class="player__playerbutton-img" src="../../../assets/imgs/Player/play.png" alt="">
+    </button>
+    <button class="player__playerbutton" *ngIf="!audioProperty.paused" (click)="pauseMusic()">
+      <img class="player__playerbutton-img" src="../../../assets/imgs/Player/pause.png" alt="">
+    </button>
+    <div #totaltime class="player__totaltime">
+      <div #currenttime [style.width.%]="audioProperty.currentTime" class="player__currenttime"></div>
+    </div>
+  </div>
+  <div class="player__meaning">
+    <h3>Meanings</h3>
+    <span>{{sendWord?.data?.meaning.partOfSpeech}} - </span>
+    <span>{{sendWord?.data?.meaning.definitions}}</span>
+  </div>
+  <div class="player__control">
+    <button class="player__controlbutton" (click)="previousWord()">Previous</button>
+    <button class="player__controlbutton" (click)="nextWord()">Next</button>
+  </div>
+</div>

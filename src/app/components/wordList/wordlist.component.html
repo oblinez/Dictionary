@@ -1,0 +1,43 @@
+<div class="wordlist">
+  <div class="wordlist__options">
+    <button class="wordlist__button"
+      [ngClass]="{ 'wordlist__button--active' : listOptions[listType.list] }"
+      (click)="listSelect( { type: listType.list } )"
+    >
+      List
+    </button>
+    <button class="wordlist__button"
+      [ngClass]="{ 'wordlist__button--active' : listOptions[listType.favorite] }"
+      (click)="listSelect( { type: listType.favorite } )"
+    >
+      Favorite
+    </button>
+    <button class="wordlist__button"
+      [ngClass]="{ 'wordlist__button--active' : listOptions[listType.history] }"
+      (click)="listSelect( { type: listType.history } )"
+    >
+      Hystory
+    </button>
+  </div>
+  <div class="wordlist__wrap">
+  <div 
+    class="wordlist__container"
+    infinite-scroll
+    [infiniteScrollDistance]="1.5"
+    [infiniteScrollThrottle]="100"
+    [scrollWindow]="false"
+    (scrolled)="showMoreItens()"
+    >
+      <div class="wordlist__grid">
+        <button 
+          *ngFor="let item of listToBeDisplayed; let i = index"
+          class="wordlist__grid-button"
+          [ngClass]="{ 'wordlist__grid-button--active' : !!item?.isActive}"
+          (click)="handleOption({ item, index: i })">
+          {{item.word}}
+        </button>
+      </div>
+    </div>
+  </div>
+  <span class="wordlist__error" *ngIf="!!gridButtons?.error">{{gridButtons?.error}}</span>
+</div>

@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  margin: 0px;
+};
+button {
+    cursor: pointer;
+}
+//@media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ }
+
+/* mixin to smartphone */
+@mixin desktop() {
+    @media (min-width: 1024px) {
+        @content;
+    }
+};
+
+@mixin smartphone() {
+    @media (max-width: 1023px) {
+        @content;
+    }
+};
+
+//@media (min-width:600px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ }
+//@media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
+//@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+//@media (min-width:1281px) { /* hi-res laptops and desktops */ }

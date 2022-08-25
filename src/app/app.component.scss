@@ -1,0 +1,58 @@
+@import "../styles.scss";
+
+.container {
+  height         : 100vh;
+  width          : 100%;
+  display        : flex;
+  flex-direction : column;
+  justify-content: flex-start;
+
+  &__content {
+    position       : relative;
+    height         : 90%;
+    width          : 100%;
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : center;
+
+    @include desktop() {
+      flex-direction: row;
+      height        : 100%;
+
+    }
+  }
+
+  &__player {
+    position        : absolute;
+    width           : 91%;
+    height          : 100%;
+    display         : flex;
+    flex-direction  : column;
+    justify-content : flex-start;
+    align-items     : center;
+    background-color: white;
+
+    @include desktop() {
+      width          : auto;
+      height         : auto;
+      position       : initial;
+      justify-content: center;
+    }
+  }
+
+  &__wordlist {
+    width          : 90%;
+    height         : 100%;
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : center;
+    padding-top    : 2px;
+
+    @include desktop() {
+      width : 50%;
+      height: auto;
+    }
+  }
+}

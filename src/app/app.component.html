@@ -1,0 +1,19 @@
+<div class="container">
+    <app-banner></app-banner>
+    <div class="container__content">
+        <app-player class="container__player"
+        *ngIf="playerState"
+        [sendWord]="word"
+        (refreshList)="wordListRefresh($event)"
+        (previousNext)="previousNextWord($event)"
+        (closeP)="closePlayer($event)"
+        ></app-player>
+        <app-wordlist class="container__wordlist"
+        (wordToSend)="onWord($event)"
+        [listRefresh]="listRefresh"
+        [previousNext]="previousNext"
+        (openPlayerIfMobile)="openPlayer($event)"
+        >
+        </app-wordlist>
+    </div>
+</div>
