@@ -111,7 +111,6 @@ export class PlayerComponent implements OnInit, OnChanges {
       })
       this.favoriteInfos?.favorite.splice(index, 1)
       this.localStorageHandlerService.setLocalStorage(EListType.favorite, this.favoriteInfos.favorite)
-
     }
 
     this.favoriteInfos.hasfavorite ? _remove() : _add()
